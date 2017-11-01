@@ -1,9 +1,15 @@
 ---
-title: "Plotly and dashboards"
+title: "Plotly"
 author: "Lynette Pan"
 date: "November 1, 2017"
 output: html_document
 ---
+
+
+```{r}
+library(flexdashboard)
+```
+
 
 ```{r}
 
@@ -14,3 +20,57 @@ library(forcats)
 library(viridis)
 library(plotly)
 ```
+
+## Dataset
+
+```{r}
+airbnb_data = read_csv("nyc_airbnb copy.zip") %>% 
+  clean_names() %>% 
+  rename(boro = neighbourhood_group) %>% 
+  mutate(rating = review_scores_location/2) %>% 
+  filter(boro == "Manhattan",
+         room_type =="Entire home/apt",
+         price>100 & price<400)
+
+```
+## plotly scatterplot
+
+```{r}
+airbnb_data %>% 
+  mutate(hover_text= str_c("Price: $", price, "\nRating", rating)) %>% 
+  plot_ly(x= ~longitude, y= ~latitude, type="scatter", mode="marker",
+          alpha=0.5, color=~price, text= ~hover_text)
+```
+
+## plotly boxplot
+```{r}
+airbnb_data %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
+  plot_ly( x=~neighbourhood, y=~price, type="box", color=~neighbourhood)
+```
+## plotly bar chart
+
+```{r}
+airbnb_data %>% 
+  count(neighbourhood) %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
+  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
+```
+
+## ggplotly
+
+```{r}
+scatter_ggplot= airbnb_data %>% 
+  ggplot(aes(longitude, y= latitude, color = price)) + 
+  geom_point(alpha = 0.25) +
+  scale_color_viridis() +
+  coord_cartesian() +
+  theme_classic() 
+  
+
+ggplotly(scatter_ggplot)
+```
+
+
+
+

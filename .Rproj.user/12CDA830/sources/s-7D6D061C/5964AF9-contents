@@ -1,9 +1,15 @@
 ---
-title: "Plotly and dashboards"
+title: "Plotly"
 author: "Lynette Pan"
 date: "November 1, 2017"
 output: html_document
 ---
+
+
+```{r}
+library(flexdashboard)
+```
+
 
 ```{r}
 
@@ -64,6 +70,7 @@ scatter_ggplot= airbnb_data %>%
 
 ggplotly(scatter_ggplot)
 ```
+
 
 
 
