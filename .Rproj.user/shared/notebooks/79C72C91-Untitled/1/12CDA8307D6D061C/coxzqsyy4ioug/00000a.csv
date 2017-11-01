@@ -1,0 +1,28 @@
+"0","airbnb_data = read_csv(""nyc_airbnb copy.zip"") %>% "
+"0","  clean_names() %>% "
+"0","  rename(boro = neighbourhood_group) %>% "
+"0","  mutate(rating = review_scores_location/2) %>% "
+"0","  filter(boro == ""Manhattan"","
+"0","         room_type ==""Entire home/apt"","
+"0","         price>100 & price<400)"
+"2","Parsed with column specification:
+cols(
+  id = col_integer(),
+  review_scores_location = col_integer(),
+  name = col_character(),
+  host_id = col_integer(),
+  host_name = col_character(),
+  neighbourhood_group = col_character(),
+  neighbourhood = col_character(),
+  latitude = col_double(),
+  longitude = col_double(),
+  room_type = col_character(),
+  price = col_integer(),
+  minimum_nights = col_integer(),
+  number_of_reviews = col_integer(),
+  last_review = col_date(format = """"),
+  reviews_per_month = col_double(),
+  calculated_host_listings_count = col_integer(),
+  availability_365 = col_integer()
+)
+"

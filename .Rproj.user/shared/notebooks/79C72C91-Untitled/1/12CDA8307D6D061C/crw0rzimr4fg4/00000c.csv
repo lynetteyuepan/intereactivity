@@ -1,0 +1,10 @@
+"0","airbnb_data %>% "
+"0","  mutate(hover_text= str_c(""Price: $"", price, ""\nRating"", rating)) %>% "
+"0","  plot_ly(x= ~longitude, y= ~latitude, type=""scatter"", mode=""marker"","
+"0","          alpha=0.5, color=~price, text= ~hover_text)"
+"2","A marker object has been specified, but markers is not in the mode
+Adding markers to the mode...
+"
+"2","A marker object has been specified, but markers is not in the mode
+Adding markers to the mode...
+"

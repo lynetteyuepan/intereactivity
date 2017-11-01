@@ -1,0 +1,16 @@
+---
+title: "Plotly and dashboards"
+author: "Lynette Pan"
+date: "November 1, 2017"
+output: html_document
+---
+
+```{r}
+
+library(tidyverse)
+library(janitor)
+library(stringr)
+library(forcats)
+library(viridis)
+library(plotly)
+```

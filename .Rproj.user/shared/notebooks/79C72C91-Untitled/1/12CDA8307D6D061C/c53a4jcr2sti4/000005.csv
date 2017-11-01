@@ -1,0 +1,11 @@
+"0","scatter_ggplot= airbnb_data %>% "
+"0","  ggplot(aes(longitude, y= latitude, color = price)) + "
+"0","  geom_point(alpha = 0.25) +"
+"0","  scale_color_viridis() +"
+"0","  coord_cartesian() +"
+"0","  theme_classic() "
+"0","  "
+"0","ggplotly(scatter_ggplot)"
+"2","We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+"

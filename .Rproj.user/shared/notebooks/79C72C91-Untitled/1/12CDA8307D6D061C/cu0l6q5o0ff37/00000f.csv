@@ -1,0 +1,9 @@
+"0","airbnb_data %>% "
+"0","  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% "
+"0","  plot_ly( x=~neighbourhood, y=~price, type=""box"", color=~neighbourhood)"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
